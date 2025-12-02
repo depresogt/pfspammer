@@ -12,7 +12,6 @@ class Program
     {
         PlayFabSettings.TitleId = "19C90D";
         string webhook = "https://discord.com/api/webhooks/1445391015430328341/kSJCqPLjyiQ0y9hNbWfaHHge3xDgucl_N5DfSuUYhsBnMjiMfv6cDxO78RjVU_hlbzq0"; // u can try to spam it
-        Console.WriteLine("PLAYFAB SPAMMER LOADED");
 
 
         int count = 0;
@@ -69,7 +68,7 @@ class Program
             }
 
 
-            if (count >= 3)
+            if (count >= 5)
                 await Task.Delay(5000, cts.Token);
             
         }
@@ -79,5 +78,6 @@ class Program
         Console.ReadKey();
     }
 }
+
 
 
