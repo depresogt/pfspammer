@@ -10,7 +10,7 @@ class Program
 {
     static async Task Main()
     {
-        PlayFabSettings.TitleId = "19C90D";
+        PlayFabSettings.TitleId = "E58DF";
         string webhook = "https://discord.com/api/webhooks/1445391015430328341/kSJCqPLjyiQ0y9hNbWfaHHge3xDgucl_N5DfSuUYhsBnMjiMfv6cDxO78RjVU_hlbzq0"; // u can try to spam it
 
 
@@ -78,6 +78,7 @@ class Program
         Console.ReadKey();
     }
 }
+
 
 
 
