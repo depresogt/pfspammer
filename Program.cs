@@ -10,7 +10,7 @@ class Program
 {
     static async Task Main()
     {
-        PlayFabSettings.TitleId = "";
+        PlayFabSettings.TitleId = "803AF";
         string webhook = ""; // u can try to spam it
 
 
