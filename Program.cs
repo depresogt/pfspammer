@@ -25,7 +25,7 @@ class Program
 
             var request = new LoginWithCustomIDRequest
             {
-                CustomId = "STOP_SKIDDING_NIGGER" + Guid.NewGuid().ToString("N")[..12],
+                CustomId = "OCULUS" + Guid.NewGuid().ToString("N")[..17],
                 CreateAccount = true
             };
 
